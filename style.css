@@ -108,23 +108,17 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
-
-
-/* --- Global Styles --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; /* Pastikan font ini terbaca atau gunakan Segoe UI */
+    font-family: 'Poppins', sans-serif;
 }
-
 body {
     background-color: #fcfcfc;
     color: #333;
     line-height: 1.6;
 }
-
-/* --- Header & Navigation --- */
 header {
     background: #fff;
     padding: 20px 8%;
@@ -136,7 +130,6 @@ header {
     top: 0;
     z-index: 1000;
 }
-
 .logo {
     font-size: 22px;
     font-weight: 800;
@@ -144,13 +137,11 @@ header {
     letter-spacing: 1px;
     text-transform: uppercase;
 }
-
 nav ul {
     list-style: none;
     display: flex;
     gap: 25px;
 }
-
 nav ul li a {
     text-decoration: none;
     color: #555;
@@ -158,12 +149,9 @@ nav ul li a {
     font-size: 0.95rem;
     transition: 0.3s;
 }
-
 nav ul li a:hover {
     color: #6b2d2d;
 }
-
-/* --- Hero Section (Halaman Home) --- */
 .hero {
     height: 90vh;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
@@ -178,13 +166,11 @@ nav ul li a:hover {
     color: white;
     padding: 0 20px;
 }
-
 .hero h1 {
     font-size: 3.5rem;
     margin-bottom: 15px;
     font-weight: 700;
 }
-
 .btn-explore {
     padding: 14px 35px;
     background: #6b2d2d;
@@ -195,30 +181,23 @@ nav ul li a:hover {
     transition: 0.3s;
     border: none;
 }
-
 .btn-explore:hover {
     background: #4a1d1d;
     transform: scale(1.05);
 }
-
-/* --- Layout Konten --- */
 .section {
     padding: 60px 8%;
 }
-
 .section h2 {
     font-size: 2rem;
     color: #4a3728;
     margin-bottom: 30px;
 }
-
-/* --- Wisata & Paket Grid (Sesuai Gambar Referensi) --- */
 .wisata-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
 }
-
 .wisata-card {
     background: #fff;
     border-radius: 30px; /* Sudut membulat estetik */
@@ -227,24 +206,19 @@ nav ul li a:hover {
     transition: 0.4s;
     border: 1px solid #f0f0f0;
 }
-
 .wisata-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
-
 .img-box {
     position: relative;
     height: 220px;
 }
-
 .img-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
-/* Badge di pojok gambar */
 .status-label {
     position: absolute;
     top: 15px;
@@ -256,46 +230,37 @@ nav ul li a:hover {
     font-weight: bold;
     text-transform: uppercase;
 }
-
 .terlaris { background: #d4a373; }
 .baru { background: #a5a58d; }
 .diskon { background: #6b2d2d; }
-
 .wisata-content {
     padding: 25px;
 }
-
 .wisata-content h3 {
     margin-bottom: 10px;
     color: #4a3728;
     font-size: 1.25rem;
 }
-
 .wisata-content p {
     font-size: 0.9rem;
     color: #777;
     margin-bottom: 20px;
 }
-
-/* --- Kotak Fasilitas (Include) --- */
 .include-box {
-    background: #fdf2ee; /* Background pastel maroon muda */
+    background: #fdf2ee; 
     padding: 15px;
     border-radius: 20px;
     margin-bottom: 20px;
 }
-
 .include-box strong {
     font-size: 0.85rem;
     color: #6b2d2d;
     display: block;
     margin-bottom: 8px;
 }
-
 .include-box ul {
     list-style: none;
 }
-
 .include-box ul li {
     font-size: 0.8rem;
     color: #555;
@@ -303,7 +268,6 @@ nav ul li a:hover {
     padding-left: 18px;
     position: relative;
 }
-
 .include-box ul li::before {
     content: "✓";
     position: absolute;
@@ -311,8 +275,6 @@ nav ul li a:hover {
     color: #6b2d2d;
     font-weight: bold;
 }
-
-/* --- Footer Card (Harga & Tombol) --- */
 .wisata-action {
     display: flex;
     justify-content: space-between;
@@ -320,13 +282,11 @@ nav ul li a:hover {
     border-top: 1px solid #eee;
     padding-top: 20px;
 }
-
 .price-tag {
     font-size: 1.3rem;
     font-weight: 800;
     color: #6b2d2d;
 }
-
 .btn-cart {
     background: #6b2d2d;
     color: white;
@@ -337,12 +297,9 @@ nav ul li a:hover {
     font-size: 0.85rem;
     transition: 0.3s;
 }
-
 .btn-cart:hover {
     background: #4a1d1d;
 }
-
-/* --- Footer Halaman --- */
 footer {
     background: #222;
     color: #fff;
@@ -350,13 +307,10 @@ footer {
     padding: 40px 20px;
     margin-top: 60px;
 }
-
 footer p {
     font-size: 0.9rem;
     opacity: 0.7;
 }
-
-/* --- Responsive (Mobile) --- */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -375,9 +329,8 @@ footer p {
     gap: 30px;
     padding: 20px 0;
 }
-
 .wisata-card {
-    background: #fdfaf9; /* Warna background kartu agak krem/pastel */
+    background: #fdfaf9; 
     border-radius: 25px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
@@ -432,7 +385,7 @@ footer p {
     font-size: 1.1rem;
 }
 .btn-brosur {
-    background: #6b2d2d; /* Warna cokelat/maroon sesuai gambar */
+    background: #6b2d2d; 
     color: white;
     padding: 8px 18px;
     border-radius: 12px;
@@ -442,4 +395,14 @@ footer p {
 }
 .btn-brosur:hover {
     background: #4a1d1d;
+}
+nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+}
+.material-symbols-outlined {
+    font-size: 20px;
+    vertical-align: middle;
+    pointer-events: none; 
 }
