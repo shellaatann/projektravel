@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-</head>
+
 <body>
     <header>
         <div class="logo">Sel Travel</div>
@@ -17,14 +17,18 @@
                 <li><a href="paket.html"><span class="material-symbols-outlined">package</span> Paket</a></li>
                 <li><a href="event.html"><span class="material-symbols-outlined">event</span> Event</a></li>
                 <li><a href="about.html"><span class="material-symbols-outlined">info</span> About Us</a></li>
+                <!-- TAMBAHAN: Tombol untuk memicu Pop-up Login -->
+                <li><a onclick="bukaModalLogin()" class="btn-login-nav" style="cursor: pointer;"><span class="material-symbols-outlined">login</span>Login</a></li>
              </ul>
         </nav>
     </header>
+    
     <section class="hero">
         <h1>Bali Menanti Anda</h1>
         <p> Find your new experience in Sel Travel.</p>
         <a href="wisata.html" class="btn-explore">Explore Sekarang</a>
     </section>
+    
     <section class="section">
         <h2>Destinasi Terpopuler</h2>
         <div class="card-container">
@@ -38,10 +42,106 @@
             </div>
         </div>
     </section>
+    <div id="modalLogin" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="tutupModal()">&times;</span>
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="loginUsername">Username:</label>
+                <input type="text" id="loginUsername" placeholder="Masukkan username">
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" placeholder="Masukkan password">
+            </div>
+            <button class="btn-submit" onclick="prosesLogin()">Masuk</button>
+            <div id="loginMessage" class="pesan-error"></div>
+            <div class="switch-form">
+                Belum punya akun? <a onclick="tukarKeRegistrasi()">Daftar disini</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalRegistrasi" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="tutupModal()">&times;</span>
+            <h2>Registrasi</h2>
+            <div class="form-group">
+                <label for="regUsername">Buat Username:</label>
+                <input type="text" id="regUsername" placeholder="Username baru">
+            </div>
+            <div class="form-group">
+                <label for="regPassword">Buat Password:</label>
+                <input type="password" id="regPassword" placeholder="Password baru">
+            </div>
+            <button class="btn-submit" onclick="prosesRegistrasi()">Daftar</button>
+            <div id="regMessage" class="pesan-error"></div>
+            <div class="switch-form">
+                Sudah punya akun? <a onclick="tukarKeLogin()">Login disini</a>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2024 Sel Travel. All Rights Reserved.</p>
         <p>Tlp:(0761)66687621</p>
         <p>Lokasi: Medan</p>
     </footer>
+    <script>
+        let dataUser = {
+            username: "",
+            password: ""
+        };
+
+        function bukaModalLogin() {
+            document.getElementById("modalLogin").style.display = "block";
+        }
+        function tutupModal() {
+            document.getElementById("modalLogin").style.display = "none";
+            document.getElementById("modalRegistrasi").style.display = "none";
+        }
+        function tukarKeRegistrasi() {
+            document.getElementById("modalLogin").style.display = "none";
+            document.getElementById("modalRegistrasi").style.display = "block";
+        }
+        function tukarKeLogin() {
+            document.getElementById("modalRegistrasi").style.display = "none";
+            document.getElementById("modalLogin").style.display = "block";
+        }
+        function prosesRegistrasi() {
+            const usernameInput = document.getElementById("regUsername").value;
+            const passwordInput = document.getElementById("regPassword").value;
+            const messageDiv = document.getElementById("regMessage");
+            if (usernameInput === "" || passwordInput === "") {
+                messageDiv.style.color = "red";
+                messageDiv.innerHTML = "Field tidak boleh kosong!";
+                return;
+            }
+            dataUser.username = usernameInput;
+            dataUser.password = passwordInput;
+            messageDiv.style.color = "green";
+            messageDiv.innerHTML = "Registrasi Berhasil!";
+            document.getElementById("regUsername").value = "";
+            document.getElementById("regPassword").value = "";
+            setTimeout(tukarKeLogin, 1500);
+        }
+        function prosesLogin() {
+            const usernameInput = document.getElementById("loginUsername").value;
+            const passwordInput = document.getElementById("loginPassword").value;
+            const messageDiv = document.getElementById("loginMessage");
+
+            if (dataUser.username === "") {
+                messageDiv.style.color = "red";
+                messageDiv.innerHTML = "Belum ada akun terdaftar!";
+            } else if (usernameInput === dataUser.username && passwordInput === dataUser.password) {
+                messageDiv.style.color = "green";
+                messageDiv.innerHTML = "Login Berhasil! Halo, " + usernameInput + ".";
+                setTimeout(tutupModal, 1500);
+            } else {
+                messageDiv.style.color = "red";
+                messageDiv.innerHTML = "Username atau Password salah!";
+            }
+        }
+    </script>
 </body>
 </html>
